@@ -397,3 +397,62 @@ border-bottom: 3px solid var(--main-color);
     font-size: 16px;
     margin-top: 40px;
 }
+
+
+
+@media(max-width:1200px) {
+
+    #menu-icon{
+        display: block;
+    }
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 50%;
+        padding: 1rem 3rem;
+        background:rgba(0, 0, 0, 0.8);
+        border-bottom-left-radius:2rem ;
+        border-left: 2px solid var(--main-color);
+        border-bottom: 2px solid var(--main-color);
+        display: none; 
+    }
+    .navbar a {
+        display: block;
+        margin: 3rem 0;
+        font-size: 2rem;
+        color: var(--text-color);
+    }
+    .navbar.active {
+        display: block;
+    }
+
+    .gradient-btn {
+        display: none;
+    }
+
+    .home {
+        flex-direction: column-reverse;
+       margin: 5rem 0;
+       gap: 5rem;
+    }
+
+    .home-content {
+       align-items: center;
+        text-align: center;
+    }
+
+
+        .about{
+            flex-direction: column-reverse;
+            text-align: center;
+         
+        }
+        .about h2{
+            text-align: center;
+            margin: 2rem 0
+        }
+    .contact form{
+        flex-direction: column;
+    }
+}
