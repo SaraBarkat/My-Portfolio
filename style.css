@@ -10,7 +10,7 @@
   --bg-color: #080808;
   --second-bg-color: #101010;
   --text-color: white;
-  --main-color: #ea580c;
+  --main-color: #00ffee;
 }
 html {
   font-size: 60%;
@@ -55,9 +55,8 @@ transform: scale(1.1);
 span{
     background: linear-gradient(
         270deg,
-        #df8908 10%  , 
-        #ff1d15 100%
-
+        #00ffee,
+        #008888
     );
     background-clip: text;
     color: transparent;
@@ -81,11 +80,8 @@ border-bottom: 3px solid transparent;
 font-size: 1.8rem;
 padding: 1rem 2rem;
 border-radius: 3rem;
-background: linear-gradient(
-    270deg,
-    #df8908 10%,
-    #ff1d15 100%
-  );
+  background: linear-gradient(270deg, #00ffee, #008888);
+
 
 letter-spacing: 1px;
 cursor: pointer;
@@ -175,7 +171,7 @@ gap: 15rem;
 
 
 }
-.btn :hover{
+.btn:hover{
 transform: scale(1.05);
 box-shadow: 0 0 25px var(--main-color)n0 0 50px var(--main-color);
 }
@@ -287,4 +283,117 @@ gap: 2.5rem;
 .service-info i{
  font-size: 8rem;
 
+}
+.projects{
+    background-color: var(--second-bg-color);
+}
+.projects-box{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    place-items: center;
+    gap: 3rem;
+    row-gap: 5rem;
+}
+.project-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--bg-color);
+    border: 2px solid var(--main-color);
+    border-radius: 3rem;
+    gap: 2rem;
+    padding: 5rem 2rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3 ease;
+    box-shadow: 0 0 5px var(--main-color);
+
+    height: 500px;
+
+}
+
+.project-card:hover{
+    transform: scale(1.02);
+    box-shadow: 0 0 25px var(--main-color),0 0 50px var(--main-color);
+}
+.project-card img{
+    max-width: 250px;
+    border-radius: 2rem;
+    object-fit: cover;
+}
+.project-card h3{
+    font-size: 3rem;
+
+}
+.project-card p{
+    font-size: 1.6rem;
+
+}
+
+.contact{
+    background-color: var(--bg-color);
+}
+.contact h2{
+    
+    margin-bottom: 3rem ;
+    color: var(--text-color);
+}
+.contact form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    margin: 5rem 0;
+    text-align: center;
+
+}
+.contact form .input-box input, 
+.contact form textarea{
+    width: 100%;
+    padding: 2.5rem;
+    font-size: 1.8rem;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    border-radius: 2rem;
+    border: 2px solid var(--main-color);
+    margin: 1.5rem 0;
+    resize: none;
+}
+
+.footer{
+    background-color: var(--second-bg-color);
+    padding: 50px 0;
+}
+.footer .social-icons{
+text-align: center;
+
+}
+.footer .list {
+  display: flex;
+  justify-content: center;
+  gap: 30px; 
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.footer ul{
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.footer ul li a{
+color: white;
+border-bottom: 3px solid transparent;
+transition: 0.3rem ease-in-out;
+}
+.footer ul li a:hover{
+border-bottom: 3px solid var(--main-color);
+}
+.footer .copyright{
+    text-align: center;
+    font-size: 16px;
+    margin-top: 40px;
 }
