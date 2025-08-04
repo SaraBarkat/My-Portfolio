@@ -10,7 +10,8 @@
   --bg-color: #080808;
   --second-bg-color: #101010;
   --text-color: white;
-  --main-color: #00ffee;
+  --main-color: #c9448f;
+
 }
 html {
   font-size: 60%;
@@ -53,11 +54,8 @@ color: var(--text-color);
 transform: scale(1.1);
 }
 span{
-    background: linear-gradient(
-        270deg,
-        #00ffee,
-        #008888
-    );
+background: linear-gradient(270deg, #f77737, #C13584, #5851DB);
+
     background-clip: text;
     color: transparent;
 }
@@ -80,7 +78,7 @@ border-bottom: 3px solid transparent;
 font-size: 1.8rem;
 padding: 1rem 2rem;
 border-radius: 3rem;
-  background: linear-gradient(270deg, #00ffee, #008888);
+background: linear-gradient(270deg, #f77737, #C13584, #5851DB);
 
 
 letter-spacing: 1px;

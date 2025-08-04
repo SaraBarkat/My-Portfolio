@@ -4,11 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sara Barkat</title>
+    <link rel="icon"  href="SARA_BARKAT.png">
+
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+
+
+    
   </head>
   <body>
 
@@ -76,7 +81,7 @@
         I love building meaningful, efficient, and creative digital solutions. 
         Let’s turn ideas into impact !
         </p>
-        <a href="#" class="btn">Read More</a>
+         <a href="BARKAT_SARA_CV.pdf" class="btn" target="_blank">View My CV</a>
     </div>
     </section>
 
@@ -211,30 +216,27 @@
 
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me</span></h2>
-        <form action="#">
-            <div class="input-group">
-                <div class="input-box">
-                    <input type="text" placeholder="Full Name" >
-                    <input type="email" placeholder="Email" >
 
-                </div>
 
-                <div class="input-box">
-                    <input type="number" placeholder="Phone Number" >
-                    <input type="text" placeholder="Subject" >
-
-                </div>
-
+        <form id="contact-form">
+          <div class="input-group">
+            <div class="input-box">
+                <input type="text" name="name" placeholder="Full Name" required />
+                <input type="email" name="email" placeholder="Email" required />
             </div>
 
+            <div class="input-box">
+            <input type="number" name="phone" placeholder="Phone Number" />
+            <input type="text" name="subject" placeholder="Subject" required />
+            </div>
+        </div>
 
-
-
-             <div class="input-group2">
-               <textarea name="" id="" placeholder="Your Message" cols="30" rows="10" ></textarea>
-               <input type="submit" value="Send Message" class="btn">
-           </div>
+        <div class="input-group2">
+            <textarea name="message" placeholder="Your Message" cols="30" rows="10" required></textarea>
+            <input type="submit" value="Send Message" class="btn" />
+        </div>
         </form>
+
 
 
     </section>
@@ -249,7 +251,6 @@
   </div>
 
   <ul class="list">
-    <li><a href="#">FAQ</a></li>
     <li><a href="services">Services</a></li>
     <li><a href="projects">Projects</a></li>
     <li><a href="contact">Contact</a></li>
@@ -261,6 +262,6 @@
 </footer>
 
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
   </body>
 </html>
