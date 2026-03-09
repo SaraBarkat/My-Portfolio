@@ -454,3 +454,30 @@ border-bottom: 3px solid var(--main-color);
         flex-direction: column;
     }
 }
+
+
+.language-select {
+  font-size: 1.6rem;
+  padding: 0.8rem 2rem;
+  border-radius: 3rem;
+  border: 2px solid var(--main-color);
+  background: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin-left: 2rem;
+  transition: 0.3s ease-in-out;
+}
+
+.language-select:hover {
+  background-color: var(--main-color);
+  color: var(--bg-color);
+  transform: scale(1.05);
+}
+
+.language-select:focus {
+  outline: none;
+  border-color: var(--main-color);
+}
