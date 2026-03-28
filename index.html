@@ -1,227 +1,580 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sara Barkat</title>
-    <link rel="icon" href="SARA_BARKAT.png">
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sara Barkat — Portfolio</title>
+  <link rel="icon" href="SARA_BARKAT.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Supprimer les lignes verticales et bordures indésirables */
+    .header {
+      border-bottom: none !important;
+    }
 
-    <header class="header">
-      <a href="#home" class="logo">Barkat <span>Sara</span></a>
-      <select id="languageSwitcher" class="language-select">
-                <option value="fr">Français</option>
+    .deco-line {
+      display: none !important;
+    }
 
-        <option value="en">English</option>
-      </select>
-      <i class="bx bx-menu" id="menu-icon"></i>
-      <nav class="navbar">
-        <a href="#home">Accueil</a>
-        <a href="#about">À propos</a>
-        <a href="#services">Services</a>
-        <a href="#projects">Projets</a>
-      </nav>
-      <a href="#contact" class="gradient-btn">Me Contacter</a>
-    </header>
+    .hero::after,
+    .hero::before {
+      display: none !important;
+    }
 
-    <section class="home" id="home">
-      <div class="home-content">
-        <h1>Bonjour, c'est <span>Sara</span></h1>
-        <h3>Je suis <span>Développeuse Web</span></h3>
-        <br>
-        <p>
-          Étudiante passionnée en informatique à
-          <strong>l'ESI Alger</strong>, profondément intéressée
-          par le développement web, notamment le <strong>backend</strong>.
-          Toujours avide d'apprendre et d'évoluer, j'aime créer des solutions
-          numériques utiles, efficaces et créatives. Transformons les idées en impact !
+    .hero {
+      border: none !important;
+      border-right: none !important;
+      border-left: none !important;
+    }
+
+    /* Style spécifique pour la section hero modifiée */
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      line-height: 1;
+      margin-bottom: 2rem;
+    }
+
+    .title-line {
+      display: inline;
+    }
+
+    .title-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(6.5rem, 10vw, 12rem);
+      font-weight: 400;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+
+    .title-italic {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(6.5rem, 10vw, 12rem);
+      font-weight: 500;
+      font-style: italic;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--accent);
+      letter-spacing: -0.02em;
+    }
+
+    .hero-role {
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-desc {
+      max-width: 600px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .hero-btns {
+      justify-content: center;
+    }
+
+    .hero-socials {
+      justify-content: center;
+    }
+
+    /* Supprimer les bordures des liens de navigation */
+    .nav-link::after {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- NOISE OVERLAY -->
+  <div class="noise"></div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <a href="#accueil" class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.2"/>
+          <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="Playfair Display" font-size="15" fill="currentColor" font-style="italic">SB</text>
+        </svg>
+      </div>
+    </a>
+
+    <nav class="navbar" id="navbar">
+      <a href="#accueil" class="nav-link">Accueil</a>
+      <a href="#apropos" class="nav-link">À propos</a>
+      <a href="#competences" class="nav-link">Compétences</a>
+      <a href="#projets" class="nav-link">Projets</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <a href="mailto:ms_barkat@esi.dz" class="header-cta">
+      <span>Me contacter</span>
+      <i class="bx bx-arrow-back bx-rotate-180"></i>
+    </a>
+
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="accueil">
+    <!-- Background decorative elements -->
+    <div class="hero-deco">
+      <div class="deco-circle deco-1"></div>
+      <div class="deco-circle deco-2"></div>
+      <div class="deco-line deco-3"></div>
+      <div class="deco-dot-grid"></div>
+    </div>
+
+    <div class="hero-inner">
+      <div class="hero-left" style="max-width: 100%;">
+        <div class="hero-badge">
+          <span class="badge-pulse"></span>
+          Disponible · Stages & Opportunités
+        </div>
+
+        <h1 class="hero-title">
+          <span class="title-line title-name">Barkat</span>
+          <span class="title-line title-italic">Sara</span>
+        </h1>
+
+        <div class="hero-role">
+          <span class="role-line"></span>
+          <p>Systeme d'information & Développement Web · ESI Alger</p>
+        </div>
+
+        <p class="hero-desc">
+          4ᵉ année <strong>Systèmes d'Information et Technologies</strong> à l'ESI — je conçois et développe des solutions numériques robustes, de l'architecture SI au backend web.
         </p>
-        <div class="social-icons">
-          <a href="https://github.com/SaraBarkat"><i class="bx bxl-github"></i></a>
-          <a href="https://www.linkedin.com/in/barkat-sara-1b45a0263/"><i class="bx bxl-linkedin-square"></i></a>
+
+        <div class="hero-btns">
+          <a href="#projets" class="btn-fill">Voir mes projets</a>
+          <a href="BARKAT_SARA_CV.pdf" target="_blank" class="btn-outline">Télécharger CV</a>
         </div>
-        <div class="btn-group">
-          <a href="mailto:ms_barkat@esi.dz" class="btn">Recruter</a>
-          <a href="#contact" class="btn">Contact</a>
+
+        <div class="hero-socials">
+          <a href="https://github.com/SaraBarkat" target="_blank" aria-label="GitHub">
+            <i class="bx bxl-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/barkat-sara-1b45a0263/" target="_blank" aria-label="LinkedIn">
+            <i class="bx bxl-linkedin"></i>
+          </a>
+          <a href="mailto:ms_barkat@esi.dz" aria-label="Email">
+            <i class="bx bx-envelope"></i>
+          </a>
         </div>
       </div>
-    </section>
 
-    <section class="about" id="about">
-      <div class="about-content">
-        <h2>À <span>Propos</span></h2>
-        <br>
-        <p>
-          Étudiante passionnée en informatique à
-          <strong>l'ESI Alger</strong>,
-          profondément intéressée par le développement web, notamment le
-          <strong>backend</strong>. Toujours avide d'apprendre et d'évoluer,
-          j'aime créer des solutions numériques utiles, efficaces et créatives.
-          Transformons les idées en impact !
-        </p>
-        <a href="BARKAT_SARA_CV.pdf" class="btn" target="_blank">Voir mon CV</a>
+    
+  </section>
+
+  <!-- ===== À PROPOS ===== -->
+  <section class="about" id="apropos">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2 class="section-title">À <em>propos</em></h2>
+        <div class="title-rule"></div>
       </div>
-    </section>
 
-    <section class="services" id="services">
-      <h2 class="heading">Services</h2>
-      <div class="services-container">
-        <div class="service-box">
-          <div class="service-info">
-            <i class="bx bxl-figma"></i>
-            <h4>Design UI / UX</h4>
-            <p>
-              Concevoir des expériences utilisateur intuitives et engageantes,
-              avec un accent sur l'ergonomie et l'esthétique.
-            </p>
+      <div class="about-grid">
+        <div class="about-text-col">
+          <p class="about-lead">
+            Étudiante en 4ᵉ année <strong>Systèmes d'Information et Technologies (SIT)</strong> à l'ESI – Alger, je me spécialise dans l'analyse, la conception et l'optimisation des systèmes d'information, tout en développant des compétences solides en développement web (Django, Spring Boot, Angular) et en bases de données (MySQL, Oracle, MongoDB).
+          </p>
+          <p>
+            Mon parcours m'a également permis de me familiariser avec les ERP (notamment Odoo) et de comprendre le rôle stratégique des TIC dans les organisations, la théorie des organisations, l'aide à la décision et la Business Intelligence.
+          </p>
+          <p>
+            En parallèle, j'ai développé des soft skills essentiels&nbsp;: communication, travail en équipe et gestion de projet, indispensables pour transformer les idées en solutions concrètes adaptées aux besoins des utilisateurs.
+          </p>
+          <p class="about-closing">
+            Toujours en quête d'apprentissage et de défis, je suis ouverte à toute opportunité me permettant de mettre mes compétences en pratique et de contribuer à des projets innovants.
+          </p>
+
+          <a href="BARKAT_SARA_CV.pdf" target="_blank" class="btn-fill mt-2">Voir mon CV</a>
+        </div>
+
+        <div class="about-info-col">
+          <div class="info-card">
+            <div class="info-card-header">
+              <div class="info-avatar">
+                <img src="SARA_BARKAT.png" alt="Sara Barkat"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
+                <div class="info-avatar-fb" style="display:none">SB</div>
+              </div>
+              <div>
+                <h3>Sara Barkat</h3>
+                <p>ESI Alger · 2CS · SIT</p>
+              </div>
+            </div>
+
+            <div class="info-list">
+              <div class="info-item">
+                <i class="bx bx-map-pin"></i>
+                <span>Melbou, Béjaïa — Algérie</span>
+              </div>
+              <div class="info-item">
+                <i class="bx bx-envelope"></i>
+                <a href="mailto:ms_barkat@esi.dz">ms_barkat@esi.dz</a>
+              </div>
+            
+            </div>
+
+            <div class="info-tags">
+              <span>SI · SIT</span>
+              <span>Backend</span>
+              <span>Spring Boot</span>
+              <span>Django</span>
+              <span>Angular</span>
+              <span>Odoo · ERP</span>
+              <span>PostgreSQL</span>
+              <span>Business Intelligence</span>
+            </div>
+          </div>
+
+          <div class="about-stats-row">
+            <div class="astat">
+              <strong>18.56</strong>
+              <span>Bac mention excellente</span>
+            </div>
+            <div class="astat">
+              <strong>6+</strong>
+              <span>Projets réalisés</span>
+            </div>
+            <div class="astat">
+              <strong>3</strong>
+              <span>Langues</span>
+            </div>
           </div>
         </div>
-        <div class="service-box">
-          <div class="service-info">
-            <i class="bx bx-code"></i>
-            <h4>Développement Frontend</h4>
-            <p>
-              Création d'interfaces web responsives et interactives
-              en utilisant les technologies modernes et les meilleures pratiques.
-            </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMPÉTENCES ===== -->
+  <section class="skills" id="competences">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Compé<em>tences</em></h2>
+        <div class="title-rule"></div>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card sk-featured">
+          <div class="sk-icon"><i class="bx bx-data"></i></div>
+          <h4>Systèmes d'Information</h4>
+          <p>Analyse, modélisation et optimisation des SI. Théorie des organisations, aide à la décision, Business Intelligence.</p>
+          <div class="sk-pills">
+            <span>UML</span><span>Merise</span><span>Business Intelligence</span><span>Aide à la décision</span><span>Bases de données</span>
           </div>
         </div>
-        <div class="service-box">
-          <div class="service-info">
-            <i class="bx bx-code-curly"></i>
-            <h4>Développement Backend</h4>
-            <p>
-              Développement d'applications côté serveur robustes et évolutives,
-              avec un focus sur la performance et la sécurité.
-            </p>
+
+        <div class="skill-card">
+          <div class="sk-icon"><i class="bx bx-code-curly"></i></div>
+          <h4>Développement Backend</h4>
+          <p>Architectures REST solides, sécurisées et performantes pour des applications métier complexes.</p>
+          <div class="sk-pills">
+            <span>Spring Boot</span><span>Django</span><span>Java</span><span>Python</span><span>JWT</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="sk-icon"><i class="bx bx-server"></i></div>
+          <h4>Bases de données</h4>
+          <p>Conception relationnelle, modélisation avancée, requêtes et administration de BD.</p>
+          <div class="sk-pills">
+            <span>PostgreSQL</span><span>MySQL</span><span>Oracle</span><span>MongoDB</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="sk-icon"><i class="bx bx-cog"></i></div>
+          <h4>ERP & Progiciels</h4>
+          <p>Mise en place et personnalisation de solutions ERP pour la digitalisation des processus métier.</p>
+          <div class="sk-pills">
+            <span>Odoo Community</span><span>Python</span><span>Modules métier</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="sk-icon"><i class="bx bx-layout"></i></div>
+          <h4>Développement Frontend</h4>
+          <p>Interfaces modernes, responsives et accessibles pour des applications full-stack.</p>
+          <div class="sk-pills">
+            <span>Angular</span><span>HTML/CSS</span><span>JavaScript</span><span>AdminLTE</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="sk-icon"><i class="bx bx-git-branch"></i></div>
+          <h4>Outils & Méthodes</h4>
+          <p>Environnement de développement professionnel, versionnage et conception UI/UX.</p>
+          <div class="sk-pills">
+            <span>Git / GitHub</span><span>Figma</span><span>VS Code</span><span>Unity / C#</span>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="projects" id="projects">
-      <h2 class="heading">Projets</h2>
-      <div class="projects-box">
-
-        <div class="project-card">
-          <img src="SVR_cover.png" alt="SVR_cover">
-          <h3>Projet 1</h3>
-          <p>
-           Système de Veille Réglementaire est une application web full-stack développée pour la Direction Générale des Douanes algérienne, conçue pour centraliser et automatiser le suivi des textes législatifs et réglementaires. Elle remplace un processus manuel par une plateforme moderne intégrant une recherche multicritère, des alertes automatisées et un accès basé sur les rôles.
-          </p>
-        <a href="Stage BARKAT_SARA.pdf" class="btn" target="_blank">Voir le Projet</a>
-
-        </div>
-
-        <div class="project-card">
-          <img src="DPI_cover.png" alt="DPI_cover">
-          <h3>Projet 2</h3>
-          <p>
-            DPI Management System est une application web full-stack conçue pour
-            simplifier et centraliser la gestion des dossiers médicaux des patients
-            pour les professionnels de santé. Elle offre une interface intuitive
-            permettant aux médecins, infirmières, radiologues et personnels
-            administratifs d'accéder et de mettre à jour les données patients,
-            de suivre les antécédents médicaux et de gérer les traitements efficacement.
-          </p>
-          <a href="https://github.com/SaraBarkat/DPI-system.git" class="btn">Voir le Projet</a>
-        </div>
-
-        <div class="project-card">
-          <img src="Blogify_cover.png" alt="Blogify">
-          <h3>Projet 3</h3>
-          <p>
-            Blogify est une plateforme de blog moderne conçue pour aider les auteurs
-            à créer, gérer et publier des articles via une interface propre et responsive.
-            Elle intègre une authentification sécurisée, des tableaux de bord
-            personnalisés et une expérience de rédaction simplifiée — le tout
-            développé avec Django, MySQL et HTML/CSS responsive avec Tailwind CDN.
-          </p>
-          <a href="https://github.com/SaraBarkat/Blogify.git" class="btn">Voir le Projet</a>
-        </div>
-
-        <div class="project-card">
-          <img src="Ecommerce_cover.png" alt="Ecommerce_cover">
-          <h3>Projet 4</h3>
-          <p>
-            SHOP.CO est une application web e-commerce responsive développée avec
-            Angular et Django REST Framework. Elle propose une page d'accueil moderne,
-            des fiches produits détaillées, une navigation par catégories et un panier
-            d'achat entièrement fonctionnel. Conçue avec une approche mobile-first,
-            la plateforme garantit une expérience d'achat fluide sur tous les appareils.
-          </p>
-          <a href="https://github.com/SaraBarkat/SHOP.CO.git" class="btn">Voir le Projet</a>
-        </div>
-
-        <div class="project-card">
-          <img src="Legends_Of_Camelot_cover.png" alt="Legends Of Camelot">
-          <h3>Projet 5</h3>
-          <p>
-            Legends of Camelot est un jeu d'aventure au tour par tour inspiré
-            d'Advance Wars, dans un univers fantasy médiéval riche. Développé avec
-            Unity et C#, le joueur incarne un chevalier explorant des terres mystiques
-            et accomplissant des quêtes épiques. Le jeu allie gameplay stratégique,
-            narration immersive et atmosphère fantasy classique.
-          </p>
-          <a href="https://github.com/SaraBarkat/Legends-Of-Camelot.git" class="btn">Voir le Projet</a>
-        </div>
-
-        <div class="project-card">
-          <img src="Mirai_cover.png" alt="Mirai_cover">
-          <h3>Projet 6</h3>
-          <p>
-            Mirai est un site web statique moderne créé pour présenter une entreprise
-            fictive spécialisée dans les solutions numériques innovantes. Conçu avec
-            une mise en page soignée et responsive, le site met en avant les services,
-            les valeurs et la vision de l'entreprise, offrant une présence en ligne
-            forte et professionnelle. Développé uniquement en HTML, CSS et techniques
-            de design responsive.
-          </p>
-          <a href="https://github.com/SaraBarkat/mirai-website.git" class="btn">Voir le Projet</a>
-        </div>
-
+  <!-- ===== PROJETS ===== -->
+  <section class="projects" id="projets">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Mes <em>projets</em></h2>
+        <div class="title-rule"></div>
       </div>
-    </section>
 
-    <section class="contact" id="contact">
-      <h2 class="heading">Me <span>Contacter</span></h2>
-      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
-        <div class="input-group">
-          <div class="input-box">
+      <!-- PROJET VEDETTE -->
+      <div class="project-hero">
+        <div class="ph-image">
+          <img src="SVR_cover.png" alt="SVR System" />
+          <div class="ph-badge">Stage professionnel · 2CS</div>
+        </div>
+        <div class="ph-content">
+          <span class="ph-num">01</span>
+          <span class="ph-tag">Full-Stack · SI · Stage</span>
+          <h3>Système de Veille Réglementaire</h3>
+          <p>Application web développée pour la <strong>Direction Générale des Douanes algérienne</strong>. Centralise et automatise le suivi des textes législatifs et réglementaires avec recherche multicritère, alertes automatisées et gestion des accès par rôles (Admin, Veilleur, Utilisateur).</p>
+          <div class="ph-tech">
+            <span>Spring Boot</span><span>Angular</span><span>PostgreSQL</span><span>JWT</span><span>AdminLTE</span>
+          </div>
+          <a href="Stage_BARKAT_SARA.pdf" target="_blank" class="btn-fill">
+            Voir le rapport <i class="bx bx-arrow-back bx-rotate-180"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- GRILLE PROJETS -->
+      <div class="projects-grid">
+        <div class="proj-card">
+          <div class="proj-img">
+            <img src="DPI_cover.png" alt="DPI" />
+          </div>
+          <div class="proj-body">
+            <span class="proj-num">02</span>
+            <span class="proj-tag">Full-Stack · Django</span>
+            <h4>DPI Management System</h4>
+            <p>Application de gestion des dossiers médicaux pour professionnels de santé. Interface dédiée médecins, infirmières, radiologues et personnel administratif.</p>
+            <div class="proj-tech">
+              <span>Django</span><span>MySQL</span><span>HTML/CSS</span>
+            </div>
+            <div class="proj-footer">
+              <a href="https://github.com/SaraBarkat/DPI-system.git" target="_blank" class="proj-link">
+                <i class="bx bxl-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card proj-accent">
+           <div class="proj-img">
+            <img src="ERP_cover.png" alt="ERP Odoo" />
+          </div>
+         
+          <div class="proj-body">
+            <span class="proj-num">03</span>
+            <span class="proj-tag">ERP · Systèmes d'Information</span>
+            <h4>Gestion des Réclamations — Odoo</h4>
+            <p>Solution ERP sur Odoo Community pour <strong>AlMiyah Djazair</strong>. Système complet de gestion des réclamations clients&nbsp;: création, classification (techniques/commerciales), suivi en temps réel et gestion des interventions.</p>
+            <div class="proj-tech">
+              <span>Odoo Community</span><span>Python</span><span>ERP</span>
+            </div>
+            <div class="proj-footer">
+              <span class="proj-academic">Projet académique · ESI</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-img">
+            <img src="Blogify_cover.png" alt="Blogify" />
+          </div>
+          <div class="proj-body">
+            <span class="proj-num">04</span>
+            <span class="proj-tag">Full-Stack · Django</span>
+            <h4>Blogify</h4>
+            <p>Plateforme de blog moderne avec authentification sécurisée, tableaux de bord personnalisés et expérience de rédaction simplifiée.</p>
+            <div class="proj-tech">
+              <span>Django</span><span>MySQL</span><span>Tailwind</span>
+            </div>
+            <div class="proj-footer">
+              <a href="https://github.com/SaraBarkat/Blogify.git" target="_blank" class="proj-link">
+                <i class="bx bxl-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-img">
+            <img src="Ecommerce_cover.png" alt="SHOP.CO" />
+          </div>
+          <div class="proj-body">
+            <span class="proj-num">05</span>
+            <span class="proj-tag">Full-Stack · Angular</span>
+            <h4>SHOP.CO</h4>
+            <p>Application e-commerce mobile-first avec Angular et Django REST Framework. Panier fonctionnel, fiches produits et navigation par catégories.</p>
+            <div class="proj-tech">
+              <span>Angular</span><span>Django REST</span>
+            </div>
+            <div class="proj-footer">
+              <a href="https://github.com/SaraBarkat/SHOP.CO.git" target="_blank" class="proj-link">
+                <i class="bx bxl-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-img">
+            <img src="Legends_Of_Camelot_cover.png" alt="Legends of Camelot" />
+          </div>
+          <div class="proj-body">
+            <span class="proj-num">06</span>
+            <span class="proj-tag">Jeu · Unity · Chef de projet</span>
+            <h4>Legends of Camelot</h4>
+            <p>Jeu tactique tour par tour dans un univers médiéval fantasy. Chef d'équipe — coordination, leadership, développement Unity 2D et C#.</p>
+            <div class="proj-tech">
+              <span>Unity 2D</span><span>C#</span>
+            </div>
+            <div class="proj-footer">
+              <a href="https://github.com/SaraBarkat/Legends-Of-Camelot.git" target="_blank" class="proj-link">
+                <i class="bx bxl-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-img">
+            <img src="Mirai_cover.png" alt="Mirai" />
+          </div>
+          <div class="proj-body">
+            <span class="proj-num">07</span>
+            <span class="proj-tag">Frontend · HTML/CSS</span>
+            <h4>Mirai</h4>
+            <p>Site web statique professionnel pour une entreprise fictive spécialisée en solutions numériques. Design soigné et responsive, HTML/CSS pur.</p>
+            <div class="proj-tech">
+              <span>HTML</span><span>CSS</span><span>Responsive</span>
+            </div>
+            <div class="proj-footer">
+              <a href="https://github.com/SaraBarkat/mirai-website.git" target="_blank" class="proj-link">
+                <i class="bx bxl-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Tra<em>vaillons</em> ensemble</h2>
+        <div class="title-rule"></div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-left">
+          <p class="contact-intro">
+            Je suis ouverte aux stages, projets collaboratifs et opportunités professionnelles. N'hésitez pas à me contacter !
+          </p>
+
+          <div class="contact-links">
+            <a href="mailto:ms_barkat@esi.dz" class="clink">
+              <div class="clink-icon"><i class="bx bx-envelope"></i></div>
+              <div>
+                <span class="clink-label">Email</span>
+                <span class="clink-val">ms_barkat@esi.dz</span>
+              </div>
+            </a>
+            <a href="https://www.linkedin.com/in/barkat-sara-1b45a0263/" target="_blank" class="clink">
+              <div class="clink-icon"><i class="bx bxl-linkedin"></i></div>
+              <div>
+                <span class="clink-label">LinkedIn</span>
+                <span class="clink-val">barkat-sara-1b45a0263</span>
+              </div>
+            </a>
+            <a href="https://github.com/SaraBarkat" target="_blank" class="clink">
+              <div class="clink-icon"><i class="bx bxl-github"></i></div>
+              <div>
+                <span class="clink-label">GitHub</span>
+                <span class="clink-val">SaraBarkat</span>
+              </div>
+            </a>
+            <a href="https://sara-barkat-portfolio.vercel.app/" target="_blank" class="clink">
+              <div class="clink-icon"><i class="bx bx-globe"></i></div>
+              <div>
+                <span class="clink-label">Portfolio</span>
+                <span class="clink-val">sara-barkat-portfolio.vercel.app</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-right">
+          <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="80e4b4e5-8f56-4719-aa0f-09c5fffda2fd">
-            <input type="text" name="name" placeholder="Nom complet" required />
-            <input type="email" name="email" placeholder="Email" required />
-          </div>
-          <div class="input-box">
-            <input type="number" name="phone" placeholder="Numéro de téléphone" />
-            <input type="text" name="subject" placeholder="Sujet" required />
-          </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Nom complet</label>
+                <input type="text" name="name" placeholder="Votre nom" required />
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="votre@email.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Sujet</label>
+              <input type="text" name="subject" placeholder="Objet de votre message" required />
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea name="message" rows="5" placeholder="Votre message..." required></textarea>
+            </div>
+            <button type="submit" class="btn-send">
+              <span>Envoyer le message</span>
+              <i class="bx bx-send"></i>
+            </button>
+          </form>
         </div>
-        <div class="input-group2">
-          <textarea name="message" placeholder="Votre message" cols="30" rows="10" required></textarea>
-          <input type="submit" value="Envoyer le message" class="btn" />
-        </div>
-      </form>
-    </section>
-
-    <footer class="footer">
-      <div class="social-icons">
-        <a href="https://github.com/SaraBarkat"><i class="bx bxl-github"></i></a>
-        <a href="https://www.linkedin.com/in/barkat-sara-1b45a0263/"><i class="bx bxl-linkedin-square"></i></a>
       </div>
-      <ul class="list">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#projects">Projets</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <p class="copyright">
-        &copy; 2025 Sara Barkat | Tous droits réservés.
-      </p>
-    </footer>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
-  </body>
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">Sara <em>Barkat</em></div>
+      <p>© 2025 Sara Barkat · ESI Alger · Tous droits réservés</p>
+      <div class="footer-socials">
+        <a href="https://github.com/SaraBarkat" target="_blank"><i class="bx bxl-github"></i></a>
+        <a href="https://www.linkedin.com/in/barkat-sara-1b45a0263/" target="_blank"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
